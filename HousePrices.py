@@ -56,10 +56,10 @@ data['social_cat'] = pd.cut(data['LSTAT'],
                            labels = [1,2,3,4,5])
 data['social_cat'].hist()
 
-# split = StratifiedShuffleSplit(n_splits = 1, test_size = 0.4, random_state = 42)
-# for train_index, test_index in split.split(data,data['social_cat']):
-#     strat_train_set = data.loc[train_index]
-#     strat_test_set = data.loc[test_index] 
+split = StratifiedShuffleSplit(n_splits = 1, test_size = 0.4, random_state = 42)
+for train_index, test_index in split.split(data,data['social_cat']):
+    strat_train_set = data.loc[train_index]
+    strat_test_set = data.loc[test_index] 
 
 # strat_test_set['social_cat'].value_counts() / len(strat_test_set)
 
